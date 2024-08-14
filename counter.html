@@ -1,36 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>React Project</title>
-    <!-- Link to a CSS file if you have one -->
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React Counter</title>
+  </head>
+  <body>
     <div id="root"></div>
 
     <!-- React and ReactDOM -->
-    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-
+    <script
+      src="https://unpkg.com/react@18/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      crossorigin
+    ></script>
     <!-- Babel for JSX compilation -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-    <!-- Your React code -->
     <script type="text/babel">
-        // Example React Component
-        function App() {
-            return (
-                <div>
-                    <h1>Hello, World!</h1>
-                    <p>This is a small React project without using create-react-app.</p>`
-                </div>
-            );
-        }
+      function App() {
+        return (
+          <div>
+            <h1>Hello, World!</h1>
+            <p>
+              This is a small React counter project without using
+              create-react-app.
+            </p>
+            <Counter />
+          </div>
+        );
+      }
 
-        // Render the React component to the root div
-        ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+      function Counter() {
+        const [count, setCount] = React.useState(0);
+        return (
+          <div>
+            <button onClick={() => setCount(count + 1)}>Increment</button>
+            <button onClick={() => setCount(count - 1)}>Decrement</button>
+            <p>Count: {count}</p>
+            <button onClick={() => setCount(0)}>Reset</button>
+          </div>
+        );
+      }
+
+      // Render the React component to the root div
+      ReactDOM.createRoot(document.getElementById("root")).render(<App />);
     </script>
-</body>
+  </body>
 </html>
